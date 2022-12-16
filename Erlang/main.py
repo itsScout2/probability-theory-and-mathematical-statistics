@@ -326,7 +326,7 @@ print(table_d)
 theta_0 = make_erlang.theta
 theta_1 = theta_0 - 0.01
 
-y = [erlang.ppf(0.99, a=i * make_erlang.m, scale=1/theta_0) for i in make_erlang.N]
+y = [erlang.ppf(0.99, a=i * make_erlang.m, scale=1 / theta_0) for i in make_erlang.N]
 
 sums = []
 
@@ -340,7 +340,7 @@ data = {'Sum(x_i)': sums, 'c_alpha': y,
 table_crit = pd.DataFrame(data, index=make_erlang.N)
 print(table_crit)
 
-beta = [erlang.cdf(y[i], a=value * make_erlang.m, scale=1/theta_1) for i, value in enumerate(make_erlang.N)]
+beta = [erlang.cdf(y[i], a=value * make_erlang.m, scale=1 / theta_1) for i, value in enumerate(make_erlang.N)]
 
 data_beta = {'Sum(x_i)': sums, 'c_alpha': y, 'beta': beta}
 
